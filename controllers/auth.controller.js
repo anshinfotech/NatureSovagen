@@ -13,6 +13,7 @@ const cookieOptions = {
   maxAge: 5 * 24 * 60 * 60 * 1000,
   secure: process.env.NODE_ENV === "production",
 };
+
 const signup = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
