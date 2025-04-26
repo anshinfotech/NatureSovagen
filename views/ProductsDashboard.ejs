@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products Dashboard : NatureSovagen</title>
     <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/AdNav.css" />
 
     <link
       rel="stylesheet"
@@ -21,7 +22,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="topbar">
+      <nav class="admin-navbar">
         <h1 class="dash-h1">Nature Sovageon</h1>
 
         <ul class="nav-list">
@@ -29,16 +30,16 @@
           <a class="nav-link" href="/api/products-dashboard">Products</a>
           <a class="nav-link" href="/api/quotes/bookings-data">Bookings</a>
           <a class="nav-link" href="/api/contact/contacts-data">Contact Data</a>
-        </ul>
 
-        <button id="logout" class="logout-btn">
-          Logout
-          <i class="fa fa-arrow-circle-right" style="font-size: 16px"></i>
-        </button>
+          <button id="logout" class="logout-btn">
+            Logout
+            <i class="fa fa-arrow-circle-right" style="font-size: 16px"></i>
+          </button>
+        </ul>
         <button id="menuBtn" class="menuBtn">
-          <i class="fa fa-bars" style="font-size: 24px"></i>
+          <i class="fa-solid fa-bars" style="font-size: 24px"></i>
         </button>
-      </div>
+      </nav>
 
       <div class="form-container">
         <h2>Add New Product</h2>
@@ -109,6 +110,7 @@
     </div>
 
     <script src="/scripts/productdashboard.js"></script>
+    <script src="/scripts/AdNav.js"></script>
     <!-- Quill JS -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   </body>

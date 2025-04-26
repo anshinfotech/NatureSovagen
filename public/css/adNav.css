@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+#content {
+    height: 200px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.admin-navbar {
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background-color: navy;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menuBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.dash-h1 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.logout-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin: 0px 2rem;
+}
+
+@media screen and (max-width : 786px) {
+    .nav-list {
+        position: fixed;
+        left: 0%;
+        top: 0%;
+        bottom: 0%;
+        width: 60%;
+        background-color: #dbdbdb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        justify-content: start;
+        transform: translateX(-100%);
+        transition: transform ease-in-out 500ms;
+    }
+
+    .nav-link {
+        color: white;
+        background-color: navy;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .active-navbar {
+        transform: translateX(0%);
+    }
+
+    .menuBtn{
+        display: block;
+    }
+}

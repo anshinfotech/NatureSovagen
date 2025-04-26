@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard : NatureSovagen</title>
     <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/adNav.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -15,26 +16,24 @@
     />
   </head>
   <body>
-    <div class="container">
-      <div class="topbar">
-        <h1 class="dash-h1">Nature Sovageon</h1>
+    <nav class="admin-navbar">
+      <h1 class="dash-h1">Nature Sovageon</h1>
 
-        <ul class="nav-list">
-          <a class="nav-link" href="/api/dashboard">Home</a>
-          <a class="nav-link" href="/api/products-dashboard">Products</a>
-          <a class="nav-link" href="/api/quotes/bookings-data">Bookings</a>
-          <a class="nav-link" href="/api/contact/contacts-data">Contact Data</a>
-        </ul>
+      <ul class="nav-list">
+        <a class="nav-link" href="/api/dashboard">Home</a>
+        <a class="nav-link" href="/api/products-dashboard">Products</a>
+        <a class="nav-link" href="/api/quotes/bookings-data">Bookings</a>
+        <a class="nav-link" href="/api/contact/contacts-data">Contact Data</a>
 
         <button id="logout" class="logout-btn">
           Logout
           <i class="fa fa-arrow-circle-right" style="font-size: 16px"></i>
         </button>
-        <button id="menuBtn" class="menuBtn">
-          <i class="fa fa-bars" style="font-size: 24px"></i>
-        </button>
-      </div>
-    </div>
+      </ul>
+      <button id="menuBtn" class="menuBtn">
+        <i class="fa-solid fa-bars" style="font-size: 24px"></i>
+      </button>
+    </nav>
 
     <h1 class="htag">NatureSovagen Admin Dashboard</h1>
 
@@ -71,6 +70,7 @@
     </main>
 
     <script src="/scripts/Dashboard.js"></script>
+    <script src="/scripts/AdNav.js"></script>
 
     <script
       src="https://kit.fontawesome.com/e24141db11.js"
