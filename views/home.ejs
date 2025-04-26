@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page : NatureSovagen</title>
+    <!-- CSS Links -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">NatureSovagen</div>
+      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-links-container">
+        <button class="close-btn" aria-label="Close menu">&times;</button>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/naturesovagen/v1/about">About</a>
+          <a href="/naturesovagen/v1/get-a-quote">Get a Quote</a>
+          <a href="/naturesovagen/v1/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+      <h1 data-aos="slide-up" data-aos-duration="1000">Healthy – Fresh – Delicious</h1>
+    </section>
+
+    <!-- Products Images Slider -->
+    <section class="product-slider-section">
+      <h2 class="slider-title" data-aos="fade-up" data-aos-duration="1000">
+        Our Product Gallery
+      </h2>
+      <div class="slider-container" data-aos="fade-up" data-aos-duration="1000">
+        <div class="slider-track">
+          <div class="slide">
+            <img src="/images/SmallMenu/image5.png" alt="Fresh Spinach" />
+          </div>
+          <div class="slide">
+            <img src="/images/SmallMenu/image4.png" alt="Green Coffee Beans" />
+          </div>
+          <div class="slide">
+            <img src="/images/SmallMenu/image3.png" alt="Lime" />
+          </div>
+          <div class="slide">
+            <img src="/images/SmallMenu/image2.png" alt="Kola Nuts" />
+          </div>
+          <div class="slide">
+            <img
+              src="/images/SmallMenu/nahi-pata.png"
+              alt="Roasted Coffee Beans"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section>
+      <h1 class="section-title" data-aos="fade-up" data-aos-duration="1000">
+        Our Products
+      </h1>
+      <p class="section-desc" data-aos="fade-up" data-aos-duration="1000">
+        Carefully selected, ethically sourced, and always fresh. Explore our
+        top-rated natural products.
+      </p>
+
+      <div class="product-grid" id="product-grid">
+        <!-- Products Container -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>&copy; 2025 NatureSovagen. All rights reserved.</footer>
+
+    <script src="/scripts/fetchProducts.js"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

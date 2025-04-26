@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #fefefe;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+
+
+.hero {
+    background-image: url('/images/img2.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-head {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-head {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.about-header {
+    text-align: center;
+    padding: 30px 10px;
+    background-color: #ebeaea;
+    color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.company-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.company-name {
+    font-size: 2.2rem;
+    margin: 0;
+    color: #8b4513;
+}
+
+.about-section {
+    margin: 40px 0;
+    background-color: #ffffff;
+    padding: 30px;
+    border-left: 6px solid #8b4513;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #8b4513;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.customer-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.customer-card {
+    flex: 1;
+    min-width: 250px;
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.customer-card:hover {
+    background-color: #ffd0ae;
+}
+
+.customer-title {
+    font-size: 1.3rem;
+    color: #3a506b;
+    margin-bottom: 10px;
+}
+
+.customer-text {
+    font-size: 1rem;
+    color: #354f52;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    color: #888;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width : 992px) {
+    .toggle-btn {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .customer-types {
+        flex-direction: column;
+    }
+
+    .about-header {
+        padding: 20px 10px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-text,
+    .customer-text {
+        font-size: 1rem;
+    }
+}

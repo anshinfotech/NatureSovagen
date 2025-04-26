@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Dashboard : NatureSovagen</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <h1 class="dash-h1">Nature Sovageon</h1>
+
+        <ul class="nav-list">
+          <a class="nav-link" href="/api/dashboard">Home</a>
+          <a class="nav-link" href="/api/products-dashboard">Products</a>
+          <a class="nav-link" href="/api/quotes/bookings-data">Bookings</a>
+          <a class="nav-link" href="/api/contact/contacts-data">Contact Data</a>
+        </ul>
+
+        <button id="logout" class="logout-btn">
+          Logout
+          <i class="fa fa-arrow-circle-right" style="font-size: 16px"></i>
+        </button>
+        <button id="menuBtn" class="menuBtn">
+          <i class="fa fa-bars" style="font-size: 24px"></i>
+        </button>
+      </div>
+
+      <div class="form-container">
+        <h2>Add New Product</h2>
+        <form id="productForm" enctype="multipart/form-data">
+          <div class="form-group">
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Product Title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Product Description"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="category"
+              name="category"
+              placeholder="Product Category"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div id="content"></div>
+          </div>
+          <button type="submit" id="add-product">Add Product</button>
+        </form>
+      </div>
+
+      <div class="product-list">
+        <h2>Product Inventory</h2>
+        <div class="table-wrapper">
+          <table id="productTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th class="hide">Description</th>
+                <th class="hide">Category</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="productTableBody"></tbody>
+          </table>
+          <div class="loading-spinner"></div>
+          <div class="error-message">Failed to load products</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/scripts/productdashboard.js"></script>
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  </body>
+</html>

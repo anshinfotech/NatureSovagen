@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us : NatureSovagen</title>
+    <!-- CSS Links -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/contact.css" />
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1 data-aos="fade-right" data-aos-duration="1000" class="hero-title">Get in Touch</h1>
+        <p data-aos="fade-left" data-aos-duration="1000" class="hero-subtitle">
+          We'd love to hear from you. Whether it's a question, feedback, or
+          collaboration opportunity — reach out!
+        </p>
+        <a class="home-link" href="/">Back to Home page</a>
+      </div>
+    </section>
+
+    <!-- Contact Container -->
+    <div class="contact-container">
+      <!-- Contact Form -->
+      <div class="contact-form-section" data-aos="fade-right" data-aos-duration="1000">
+        <h2 class="form-title">Send Us a Message</h2>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <input
+              type="text"
+              id="name"
+              class="form-input"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              class="form-input"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <input
+              type="tel"
+              id="mobile"
+              class="form-input"
+              placeholder="Mobile Number"
+              required
+            />
+            <input
+              type="text"
+              id="subject"
+              class="form-input"
+              placeholder="Subject"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <input
+              type="text"
+              class="form-input"
+              id="city"
+              placeholder="City"
+              required
+            />
+            <input
+              type="text"
+              id="state"
+              class="form-input"
+              placeholder="State"
+              required
+            />
+            <input
+              type="text"
+              id="country"
+              class="form-input"
+              placeholder="Country"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <textarea
+              class="form-textarea"
+              placeholder="Your Message..."
+              id="message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="form-button">Submit</button>
+        </form>
+      </div>
+
+      <!-- Company Info -->
+      <div class="company-info-section" data-aos="fade-left" data-aos-duration="1000">
+        <h2 class="info-title">Contact Information</h2>
+        <p>
+          <strong>📍 Address:</strong> 123 Organic Blvd, Green City, Agri-State,
+          Country
+        </p>
+        <p><strong>📧 Email:</strong> contact@pureharvest.com</p>
+        <p><strong>📞 Phone:</strong> +123 456 7890</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>&copy; 2025 NatureSovagen. All rights reserved.</footer>
+
+    <script src="/scripts/contact.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

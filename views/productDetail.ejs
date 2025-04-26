@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - NaturalSovagen</title>
+    <!-- CSS Links -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/SingleProduct.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">NatureSovagen</div>
+      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-links-container">
+        <button class="close-btn" aria-label="Close menu">&times;</button>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/naturesovagen/v1/about">About</a>
+          <a href="/naturesovagen/v1/get-a-quote">Get a Quote</a>
+          <a href="/naturesovagen/v1/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+      <h1 class="hero-head" data-aos="slide-up" data-aos-duration="1500">NatureSovagen Products</h1>
+    </section>
+    <div class="product-detail-container" data-aos="fade-up" data-aos-duration="1500">
+      <div class="product-image">
+        <img id="productImage" src="" alt="Product Image" />
+      </div>
+      <div class="product-info">
+        <h1 id="productTitle"></h1>
+        <p class="product-category" id="productCategory"></p>
+        <p class="product-description" id="productDescription"></p>
+        <div class="product-content" id="productContent"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>&copy; 2025 NatureSovagen. All rights reserved.</footer>
+
+    <script src="/scripts/SingleProductDetails.js"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
