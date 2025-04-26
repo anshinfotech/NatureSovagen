@@ -67,6 +67,7 @@
         justify-content: start;
         transform: translateX(-100%);
         transition: transform ease-in-out 500ms;
+        z-index: 10;
     }
 
     .nav-link {
