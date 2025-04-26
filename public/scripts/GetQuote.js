@@ -1,5 +1,3 @@
-const URI = "http://localhost:3000";
-
 const showLoading = () => {
   document.querySelector(".submit-btn").innerHTML = "Loading....";
 };
@@ -66,7 +64,7 @@ const handleFormController = () => {
 const handleFormSubmission = async (formData) => {
   showLoading();
   try {
-    const response = await fetch(`${URI}/api/quotes/new_quote`, {
+    const response = await fetch(`/api/quotes/new_quote`, {
       method: "POST",
       headers: new Headers({
         "Content-Type": "application/json",

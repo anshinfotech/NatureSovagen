@@ -1,8 +1,6 @@
-const URI = "http://localhost:3000";
-
 const fetchDetailsFromServer = async () => {
   const id = new URLSearchParams(window.location.search).get("query");
-  const res = await fetch(`${URI}/api/products/${id}`, {
+  const res = await fetch(`/api/products/${id}`, {
     method: "GET",
   });
   const { Data } = await res.json();

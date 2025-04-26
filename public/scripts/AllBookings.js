@@ -1,8 +1,6 @@
-const URI = "http://localhost:3000";
-
 async function fetchOrderBookings() {
   try {
-    const res = await fetch(`${URI}/api/quotes/all_quotes`);
+    const res = await fetch(`/api/quotes/all_quotes`);
 
     if (!res.ok) throw new Error("Failed to fetch");
 
@@ -46,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Logout button
   const logoutBtn = document.getElementById("logout");
   logoutBtn.addEventListener("click", () => {
-    fetch("http://localhost:3000/api/auth/logout", {
+    fetch("/api/auth/logout", {
       method: "POST",
     })
       .then(() => {

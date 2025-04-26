@@ -1,10 +1,8 @@
-const URI = "http://localhost:3000";
-
 const fetchSingleQuote = async () => {
   try {
     const id = new URLSearchParams(window.location.search).get("query");
 
-    const res = await fetch(`${URI}/api/quotes/get_single_quote/${id}`);
+    const res = await fetch(`/api/quotes/get_single_quote/${id}`);
     if (!res.ok) throw new Error("Failed to fetch");
 
     const { Data, success, message } = await res.json();
@@ -53,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Logout button
   const logoutBtn = document.getElementById("logout");
   logoutBtn.addEventListener("click", () => {
-    fetch("http://localhost:3000/api/auth/logout", {
+    fetch("/api/auth/logout", {
       method: "POST",
     })
       .then(() => {

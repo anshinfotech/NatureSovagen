@@ -1,10 +1,8 @@
-const URI = "http://localhost:3000";
-
 const fetchSingleContactData = async () => {
   try {
     const id = new URLSearchParams(window.location.search).get("query");
 
-    const res = await fetch(`${URI}/api/contact/single_message/${id}`);
+    const res = await fetch(`/api/contact/single_message/${id}`);
     if (!res.ok) throw new Error("Failed to fetch");
 
     const resData = await res.json();
@@ -43,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Logout button
   const logoutBtn = document.getElementById("logout");
   logoutBtn.addEventListener("click", () => {
-    fetch("http://localhost:3000/api/auth/logout", {
+    fetch("/api/auth/logout", {
       method: "POST",
     })
       .then(() => {

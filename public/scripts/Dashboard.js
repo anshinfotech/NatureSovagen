@@ -1,9 +1,7 @@
-const URI = "http://localhost:3000";
-
 async function fetchProducts() {
   try {
     const pTag = document.getElementById("products");
-    const res = await fetch(`${URI}/api/products`);
+    const res = await fetch(`/api/products`);
     if (!res.ok) throw new Error("Failed to fetch");
 
     const data = await res.json();
@@ -18,7 +16,7 @@ async function fetchProducts() {
 async function fetchContacts() {
   try {
     const cTag = document.getElementById("contacts");
-    const res = await fetch(`${URI}/api/contact/all_messages`);
+    const res = await fetch(`/api/contact/all_messages`);
     if (!res.ok) throw new Error("Failed to fetch");
 
     const resData = await res.json();
@@ -32,7 +30,7 @@ async function fetchContacts() {
 async function fetchOrderBookings() {
   try {
     const oTag = document.getElementById("orders");
-    const res = await fetch(`${URI}/api/quotes/all_quotes`);
+    const res = await fetch(`/api/quotes/all_quotes`);
 
     if (!res.ok) throw new Error("Failed to fetch");
 
@@ -53,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Logout button
   const logoutBtn = document.getElementById("logout");
   logoutBtn.addEventListener("click", () => {
-    fetch("http://localhost:3000/api/auth/logout", {
+    fetch("/api/auth/logout", {
       method: "POST",
     })
       .then(() => {

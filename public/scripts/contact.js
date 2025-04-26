@@ -1,5 +1,3 @@
-const URI = "http://localhost:3000";
-
 const showLoading = () => {
   document.querySelector(".form-button").innerHTML = "Loading....";
 };
@@ -39,7 +37,7 @@ const handleContactForm = () => {
 const handleFormSubmission = async (formdata) => {
   showLoading();
   try {
-    const response = await fetch(`${URI}/api/contact/send_message`, {
+    const response = await fetch(`/api/contact/send_message`, {
       method: "POST",
       headers: new Headers({
         "Content-Type": "application/json",

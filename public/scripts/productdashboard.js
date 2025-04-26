@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Logout button
   logoutBtn.addEventListener("click", () => {
-    fetch("http://localhost:3000/api/auth/logout", {
+    fetch("/api/auth/logout", {
       method: "POST",
     })
       .then(() => {
