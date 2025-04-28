@@ -7,7 +7,7 @@
 
 /* Hero Section */
 .contact-hero {
-    background: linear-gradient(135deg, #c06a2d 30%, #471f02 100%);
+    background: linear-gradient(135deg, #0B6623 30%, #48A860 100%);
     padding: 80px 20px;
     text-align: center;
     color: #ffffff;
@@ -27,7 +27,7 @@
 
 .home-link {
     font-size: 18px;
-    color: #8b4513;
+    color: #0B6623;
     padding: 10px 20px;
     border-radius: 8px;
     background-color: #fff;
@@ -63,7 +63,7 @@
 .form-title,
 .info-title {
     font-size: 1.6rem;
-    color: #471f02;
+    color: #0B6623;
     margin-bottom: 20px;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .form-input:focus {
-    border-color: #471f02;
+    border-color: #0B6623;
     outline: none;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .form-button {
-    background-color: #8b4513;
+    background-color: #0B6623;
     color: #fff;
     padding: 14px;
     font-size: 1rem;
@@ -118,7 +118,7 @@
 }
 
 .form-button:hover {
-    background-color: #471f02;
+    background-color: #0B6623;
 }
 
 footer {

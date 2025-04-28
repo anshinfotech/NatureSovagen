@@ -83,11 +83,11 @@ const newQuoteController = asyncHandler(async (req, res) => {
     html: `
     <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px; color: #333;">
       <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <h2 style="color: #8b4513;">Hello ${fullName},</h2>
+        <h2 style="color: #0B6623;">Hello ${fullName},</h2>
         <p>Thank you for reaching out to us at <strong>NatureSovagen</strong>!</p>
         <p>We’re thrilled to inform you that your quote request has been successfully received. Our team is reviewing the details and will get back to you shortly with a personalized quotation.</p>
         
-        <h3 style="color: #8b4513;">Here’s what we’ve received from you:</h3>
+        <h3 style="color: #0B6623;">Here’s what we’ve received from you:</h3>
         <ul style="line-height: 1.8;">
           <li><strong>Full Name:</strong> ${fullName}</li>
           <li><strong>Email:</strong> ${email}</li>
@@ -106,8 +106,8 @@ const newQuoteController = asyncHandler(async (req, res) => {
   
         <p style="margin-top: 30px;">Warm regards,<br/>
         <strong>The NatureSovagen Team</strong><br/>
-        <a href="https://www.naturesovagen.com" target="_blank" style="color: #8b4513;">www.naturesovagen.com</a><br/>
-        <a href="mailto:support@naturesovagen.com" style="color: #8b4513;">support@naturesovagen.com</a>
+        <a href="https://www.naturesovagen.com" target="_blank" style="color: #0B6623;">www.naturesovagen.com</a><br/>
+        <a href="mailto:support@naturesovagen.com" style="color: #0B6623;">support@naturesovagen.com</a>
         </p>
       </div>
     </div>

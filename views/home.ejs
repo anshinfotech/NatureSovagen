@@ -8,6 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
   </head>
   <body>
     <!-- Header -->
@@ -20,15 +21,51 @@
           <a href="/">Home</a>
           <a href="/naturesovagen/v1/about">About</a>
           <a href="/naturesovagen/v1/get-a-quote">Get a Quote</a>
-          <a href="/naturesovagen/v1/contact">Contact</a>
         </div>
       </div>
     </header>
 
     <!-- Hero Banner -->
     <section class="hero">
-      <h1 data-aos="slide-up" data-aos-duration="1000">Healthy – Fresh – Delicious</h1>
+      <h1 data-aos="slide-up" data-aos-duration="1000">
+        Healthy – Fresh – Delicious
+      </h1>
     </section>
+
+    <!-- Company Logo Container -->
+
+    <div class="logo-container">
+      <div class="about-imformation">
+        <p data-aos="fade-up" data-aos-duration="1500">
+          At the heart of our company is a commitment to providing the highest
+          quality organic raw materials to the global market. We specialize in
+          the commercialization of purely organic agricultural products, free
+          from harmful bacteria, viruses, and chemicals. Every product we supply
+          is handled with utmost care and in strict compliance with
+          international food safety and agricultural standards. We proudly
+          adhere to global Good Manufacturing Practices (GMP), ensuring that our
+          operations contribute to a safer, more sustainable food industry. Our
+          team works tirelessly to exceed expectations in product quality,
+          environmental stewardship, and food safety. Beyond quality, we believe
+          in doing business the right way. We are deeply committed to ethical
+          sourcing, rigorously selecting our suppliers and farmers to ensure
+          they uphold fair labor practices. We actively stand against human
+          rights abuses in agriculture, including child labor, exploitation, and
+          trafficking. Driven by integrity and guided by our vision, we aim to
+          build lasting relationships with our customers through trust,
+          transparency, and uncompromised standards.
+        </p>
+      </div>
+      <div class="home-logo-image-cont">
+        <img
+          src="/images/SmallMenu/TpBrandLogo.png"
+          alt="Failed to load image"
+          class="home-logo-image"
+          data-aos="fade-down"
+          data-aos-duration="1500"
+        />
+      </div>
+    </div>
 
     <!-- Products Images Slider -->
     <section class="product-slider-section">
@@ -74,11 +111,120 @@
       </div>
     </section>
 
+    <!-- Contact Information -->
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1 data-aos="fade-down" data-aos-duration="1000" class="hero-title">
+          Get in Touch
+        </h1>
+        <p data-aos="fade-up" data-aos-duration="1000" class="hero-subtitle">
+          We'd love to hear from you. Whether it's a question, feedback, or
+          collaboration opportunity — reach out!
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Container -->
+    <div class="contact-container">
+      <!-- Contact Form -->
+      <div
+        class="contact-form-section"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        <h2 class="form-title">Send Us a Message</h2>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <input
+              type="text"
+              id="name"
+              class="form-input"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              class="form-input"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <input
+              type="tel"
+              id="mobile"
+              class="form-input"
+              placeholder="Mobile Number"
+              required
+            />
+            <input
+              type="text"
+              id="subject"
+              class="form-input"
+              placeholder="Subject"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <input
+              type="text"
+              class="form-input"
+              id="city"
+              placeholder="City"
+              required
+            />
+            <input
+              type="text"
+              id="state"
+              class="form-input"
+              placeholder="State"
+              required
+            />
+            <input
+              type="text"
+              id="country"
+              class="form-input"
+              placeholder="Country"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <textarea
+              class="form-textarea"
+              placeholder="Your Message..."
+              id="message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="form-button">Submit</button>
+        </form>
+      </div>
+
+      <!-- Company Info -->
+      <div
+        class="company-info-section"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h2 class="info-title">Contact Information</h2>
+        <p>
+          <strong>📍 Address:</strong> 123 Organic Blvd, Green City, Agri-State,
+          Country
+        </p>
+        <p><strong>📧 Email:</strong> contact@pureharvest.com</p>
+        <p><strong>📞 Phone:</strong> +123 456 7890</p>
+      </div>
+    </div>
+
     <!-- Footer -->
-    <footer>&copy; 2025 NatureSovagen. All rights reserved.</footer>
+    <footer>&copy; 2020 NatureSovagen. All rights reserved.</footer>
 
     <script src="/scripts/fetchProducts.js"></script>
     <script src="/scripts/nav.js"></script>
+    <script src="/scripts/contact.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();

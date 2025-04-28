@@ -57,6 +57,14 @@ const handleFormSubmission = async (formdata) => {
     alert(`Error : ${error.message}`);
   } finally {
     hideLoading();
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("mobile").value = "";
+    document.getElementById("city").value = "";
+    document.getElementById("state").value = "";
+    document.getElementById("country").value = "";
+    document.getElementById("subject").value = "";
+    document.getElementById("message").value = "";
   }
 };
 

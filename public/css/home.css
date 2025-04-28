@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -8,6 +10,35 @@ body {
     background-color: #fefefe;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #333;
+}
+
+.logo-container {
+    height:fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 100px auto;
+}
+
+.home-logo-image-cont {
+    width: 50%;
+}
+
+.about-imformation > p {
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+}
+
+.home-logo-image {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.about-imformation {
+    width: 50%;
 }
 
 .hero {
@@ -47,7 +78,7 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-top: 80px;
-    color: #8b4513;
+    color: #0B6623;
 }
 
 .section-desc {
@@ -116,7 +147,7 @@ footer {
 
 .slider-title {
     font-size: 2rem;
-    color: #8b4513;
+    color: #0B6623;
     margin-bottom: 30px;
 }
 
@@ -182,4 +213,55 @@ footer {
         width: 180px;
         height: 180px;
     }
+
+    .logo-container {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .home-logo-image-cont {
+        width: 100%;
+    }
+
+    .about-imformation {
+        width: 100%;
+    }
+}
+
+
+/* Contact CSS */
+
+
+/* Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, #0B6623 30%, #48A860 100%);
+    padding: 80px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.home-link {
+    font-size: 18px;
+    color: #0B6623;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.home-link:hover {
+    color: #ececec;
+    background: none;
+    border: 1.5px solid #ececec;
 }
