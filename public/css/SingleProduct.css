@@ -69,8 +69,23 @@ body {
 
 .product-info h1 {
     font-size: 2rem;
-    color: #333;
+    color: #86bc25;
     margin-bottom: 0.5rem;
+}
+
+.products-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 80%;
+    margin: 50px auto;
+    justify-content: center;
+}
+
+.grid-image{
+    height: 250px;
+    width: 330px;
+    border-radius: 10px;
 }
 
 .product-category {

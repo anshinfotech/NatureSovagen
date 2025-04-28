@@ -21,7 +21,7 @@ async function fetchProducts() {
         card.setAttribute('data-aos' , "fade-up")
 
         card.innerHTML = `
-        <img src="${product.image}" alt="${product.title}" />
+        <img src="${product.image[0]}" alt="${product.title}" />
         <h3>${product.title}</h3>
         <p>${product.description || "No description available."}</p>
       `;

@@ -8,9 +8,24 @@ const fetchDetailsFromServer = async () => {
   document.getElementById("productTitle").textContent = Data.title;
   document.getElementById("productCategory").textContent = Data.category;
   document.getElementById("productDescription").textContent = Data.description;
-  document.getElementById("productImage").src = Data.image;
-  document.getElementById("productImage").alt = Data.title;
+  document.getElementById("productImage").src = Data.image[0];
   document.getElementById("productContent").innerHTML = Data.content;
+
+  const productGrid = document.querySelector(".products-grid");
+
+  Data.image.map((item) => {
+    const img = document.createElement("img");
+    img.alt = "Failed to Load image";
+    img.src = item;
+    img.classList.add("grid-image");
+
+    img.onclick = () => {
+      window.open(item , "_blank")
+    };
+
+    productGrid.append(img);
+  });
+
   try {
   } catch (error) {
     alert(error.message || "Something went wrong");
