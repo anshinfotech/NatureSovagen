@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>
           ${
             product.image
-              ? `<img class="product-image" src="${product.image}" alt="${product.title}">`
+              ? `<img class="product-image" src="${product.image[0]}" alt="${product.title}">`
               : "No Image"
           }
         </td>
@@ -99,13 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData();
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
-    const image = document.getElementById("image").files[0];
+    const image = document.getElementById("image").files;
     const category = document.getElementById("category").value;
     const content = quill.root.innerHTML;
 
+    for (let i = 0; i < image.length; i++) {
+      formData.append("image", image[i]);
+    }
     formData.append("title", title);
     formData.append("category", category);
-    formData.append("image", image);
     formData.append("content", content);
     formData.append("description", description);
 

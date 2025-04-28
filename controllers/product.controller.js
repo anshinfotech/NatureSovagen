@@ -4,7 +4,7 @@ const uploadOnCloudinary = require("../config/cloudinary");
 const addProduct = async (req, res) => {
   try {
     const { title, description, category, content } = req.body;
-    const file = req.file;
+    const files = req.files;
 
     if (!title) {
       return res.status(400).json({ message: "Title is required" });
@@ -18,13 +18,13 @@ const addProduct = async (req, res) => {
     if (!content) {
       return res.status(400).json({ message: "Content is required" });
     }
-    if (!file) {
-      return res.json({ message: "Image is required", success: false });
+    if (!files && files.length === 0) {
+      return res.json({ message: "Images are required", success: false });
     }
 
-    const imageUrl = await uploadOnCloudinary(file);
+    const imageUrls = await uploadOnCloudinary(files);
 
-    if (!imageUrl) {
+    if (!imageUrls || imageUrls.length === 0) {
       return res
         .status(500)
         .json({ message: "Failed to upload image", success: false });
@@ -34,7 +34,7 @@ const addProduct = async (req, res) => {
       title,
       description,
       category,
-      image: imageUrl,
+      image: imageUrls,
       content,
     });
 

@@ -5,10 +5,10 @@ const {
   getSingleProduct,
   deleteProduct,
 } = require("../controllers/product.controller");
-const uploadSingleImage = require("../middlewares/upload");
 const isAuthenticated = require("../middlewares/isAuthenticated");
+const uploadImage = require("../middlewares/upload");
 
-router.post("/products", uploadSingleImage, addProduct);
+router.post("/products", uploadImage, addProduct);
 router.get("/products", getAllProducts);
 router.get("/dashboard", isAuthenticated, (req, res) => {
   res.render("dashboard");
