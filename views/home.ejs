@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page : NatureSovagen</title>
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <!-- CSS Links -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/home.css" />
@@ -126,6 +131,39 @@
       </div>
     </section>
 
+    <!-- Slider main container -->
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/image5.png" alt="Failed to load image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/image4.png" alt="Failed to load image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/Coffee1.png" alt="Failed to load image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/image3.png" alt="Failed to load image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/Coffee2.png" alt="Failed to load image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/Shea1.png" alt="Failed to load image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/Peanuts.png" alt="Failed to load image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/images/SmallMenu/Kola2.png" alt="Failed to load image" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
     <!-- Contact Information -->
 
     <!-- Hero Section -->
@@ -225,12 +263,9 @@
         data-aos-duration="1000"
       >
         <h2 class="info-title">Contact Information</h2>
-        <p>
-          <strong>📍 Address:</strong> 123 Organic Blvd, Green City, Agri-State,
-          Country
-        </p>
-        <p><strong>📧 Email:</strong> contact@pureharvest.com</p>
-        <p><strong>📞 Phone:</strong> +123 456 7890</p>
+        <p><strong>📍 Address:</strong> Guinea, Conakry, West Africa</p>
+        <p><strong>📧 Email:</strong> naturesovagen@gmail.com</p>
+        <p><strong>📞 Phone:</strong> +1(201) 899-9077 , +1(646) 691-4584</p>
       </div>
     </div>
 
@@ -243,6 +278,16 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
     </script>
   </body>
 </html>

@@ -23,3 +23,4 @@ const upload = multer({
 const uploadImage = upload.array("image", 10);
 
 module.exports = uploadImage;
+
