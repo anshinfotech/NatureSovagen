@@ -19,6 +19,10 @@ app.use("/api/auth", authROuter);
 app.use("/api/contact", ContactRouter);
 app.use("/api/quotes", QuoteRouter);
 
+
+//Database calling
+dbConnection();
+
 //pages rendering routes
 
 app.get("/", (req, res) => {
