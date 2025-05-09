@@ -5,7 +5,7 @@ const QuoteSchema = new Schema({
   email: { type: String, required: true },
   mobile: { type: Number, required: true },
   altMobile: { type: Number, required: true },
-  gender: { type: String, required: true, enum: ["male", "female", "other"] },
+  gender: { type: String, required: true, enum: ["Mr.", "Mrs.", "other" , "Ms."] },
   company: { type: String, required: true },
   landmark: { type: String },
   city: { type: String },
