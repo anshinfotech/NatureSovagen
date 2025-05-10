@@ -23,7 +23,6 @@ const renderDataDOM = (Data) => {
         <td >${item.fullName}</td>
         <td >${item.email}</td>
         <td >${item.mobile}</td>
-        <td >${item?.products.join(",")}</td>
         <td >${new Date(item.deliveryDate).toDateString()}</td>
         <td >${item.state}/${item.country}</td>
         <td ><button onclick="navigate('${

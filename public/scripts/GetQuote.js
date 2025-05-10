@@ -8,21 +8,78 @@ const hideLoading = () => {
 
 const handleFormController = () => {
   const form = document.querySelector(".quote-form");
+
+  /* Add products logic */
   const checkboxes = document.querySelectorAll(".pdcb");
+  const selects = document.querySelectorAll("select.sample");
 
-  let products = [];
+  // Initialize products array from localStorage or as empty array
+  let products = JSON.parse(localStorage.getItem("products")) || [];
 
-  checkboxes.forEach((item) => {
-    item.addEventListener("change", function () {
-      if (item.checked) {
-        if (!products.includes(item.value)) {
-          products.push(item.value);
+  // Disable all selects initially
+  selects.forEach((select) => (select.disabled = true));
+
+  // Restore state if previously saved
+  products.forEach((productObj) => {
+    const checkbox = document.querySelector(
+      `input.pdcb[value="${productObj.product}"]`
+    );
+    const row = checkbox.closest("tr");
+    const select = row.querySelector("select.sample");
+
+    checkbox.checked = true;
+    select.disabled = false;
+    select.value = productObj.quantity;
+  });
+
+  // Attach checkbox listeners
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      const row = checkbox.closest("tr");
+      const select = row.querySelector("select.sample");
+      const productName = checkbox.value;
+
+      if (checkbox.checked) {
+        select.disabled = false;
+
+        // Add product if not already in array
+        if (!products.some((p) => p.product === productName)) {
+          products.push({
+            product: productName,
+            quantity: select.value,
+          });
         }
       } else {
-        products = products.filter((val) => val !== item.value);
+        select.disabled = true;
+        // Remove from products
+        products = products.filter((p) => p.product !== productName);
+      }
+
+      localStorage.setItem("products", JSON.stringify(products));
+      console.log(products);
+    });
+  });
+
+  // Attach select listeners to update quantity
+  selects.forEach((select) => {
+    select.addEventListener("change", function () {
+      const row = select.closest("tr");
+      const checkbox = row.querySelector(".pdcb");
+      const productName = checkbox.value;
+
+      if (checkbox.checked) {
+        products = products.map((p) =>
+          p.product === productName
+            ? { product: productName, quantity: select.value }
+            : p
+        );
+
+        localStorage.setItem("products", JSON.stringify(products));
+        console.log(products);
       }
     });
   });
+  /* Add products logic */
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -76,7 +133,8 @@ const handleFormSubmission = async (formData) => {
 
     if (data.success) {
       alert(data.message || "Operation Successfull");
-      window.location.reload()
+      localStorage.removeItem("products")
+      window.location.reload();
     } else {
       throw new Error(data.message);
     }

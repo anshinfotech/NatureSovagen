@@ -19,13 +19,28 @@ const fetchSingleQuote = async () => {
           `;
       };
 
+      let table = "";
+
+      Data.products.map((item, index) => {
+        table += `
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">${index + 1}</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">${item.product}</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">${item.quantity}</td>
+          </tr>
+        `;
+      });
+
       const html = `
             ${renderField("Name", Data?.fullName)}
             ${renderField("Email", Data?.email)}
             ${renderField("Mobile", Data?.mobile)}
             ${renderField("Alternate Mobile", Data?.altMobile)}
             ${renderField("Company/Organization Name", Data?.company)}
-            ${renderField("Gender", Data?.gender === "male" ? "Male" : "Female")}
+            ${renderField(
+              "Gender",
+              Data?.gender === "male" ? "Male" : "Female"
+            )}
             ${renderField(
               "Expected Delivery Date",
               new Date(Data?.deliveryDate).toDateString()
@@ -34,7 +49,15 @@ const fetchSingleQuote = async () => {
               "Location",
               `${Data?.landmark},${Data?.city}, ${Data?.state}, ${Data?.country}/${Data.postalCode}`
             )}
-            ${renderField("Ordered Products Details", Data?.products.join(", "))}
+           <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+              <tr style="background-color: #f2f2f2;">
+               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Sr.</td>
+               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Product Name</td>
+               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Quantity</td>
+              </tr>
+
+              ${table}
+           </table>
           `;
 
       detailsDiv.innerHTML = html;
