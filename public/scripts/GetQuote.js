@@ -8,78 +8,100 @@ const hideLoading = () => {
 
 const handleFormController = () => {
   const form = document.querySelector(".quote-form");
-
-  /* Add products logic */
   const checkboxes = document.querySelectorAll(".pdcb");
   const selects = document.querySelectorAll("select.sample");
+  const unitSelects = document.querySelectorAll("select.unit");
 
-  // Initialize products array from localStorage or as empty array
-  let products = JSON.parse(localStorage.getItem("products")) || [];
+  let products = JSON.parse(sessionStorage.getItem("products")) || [];
 
-  // Disable all selects initially
+  // Disable selects and unit dropdowns initially
   selects.forEach((select) => (select.disabled = true));
+  unitSelects.forEach((unit) => (unit.disabled = true));
 
-  // Restore state if previously saved
+  // Restore state
   products.forEach((productObj) => {
     const checkbox = document.querySelector(
       `input.pdcb[value="${productObj.product}"]`
     );
     const row = checkbox.closest("tr");
     const select = row.querySelector("select.sample");
+    const unitSelect = row.querySelector("select.unit");
 
     checkbox.checked = true;
     select.disabled = false;
+    unitSelect.disabled = false;
+
     select.value = productObj.quantity;
+    unitSelect.value = productObj.unit;
   });
 
-  // Attach checkbox listeners
+  // Handle checkbox changes
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
       const row = checkbox.closest("tr");
       const select = row.querySelector("select.sample");
+      const unitSelect = row.querySelector("select.unit");
       const productName = checkbox.value;
 
       if (checkbox.checked) {
         select.disabled = false;
+        unitSelect.disabled = false;
 
-        // Add product if not already in array
         if (!products.some((p) => p.product === productName)) {
           products.push({
             product: productName,
             quantity: select.value,
+            unit: unitSelect.value,
           });
         }
       } else {
         select.disabled = true;
-        // Remove from products
+        unitSelect.disabled = true;
+
         products = products.filter((p) => p.product !== productName);
       }
 
-      localStorage.setItem("products", JSON.stringify(products));
+      sessionStorage.setItem("products", JSON.stringify(products));
       console.log(products);
     });
   });
 
-  // Attach select listeners to update quantity
+  // Handle quantity changes
   selects.forEach((select) => {
     select.addEventListener("change", function () {
       const row = select.closest("tr");
+      const checkbox = row.querySelector(".pdcb");
+      const unitSelect = row.querySelector("select.unit");
+      const productName = checkbox.value;
+
+      if (checkbox.checked) {
+        products = products.map((p) =>
+          p.product === productName ? { ...p, quantity: select.value } : p
+        );
+
+        sessionStorage.setItem("products", JSON.stringify(products));
+        console.log(products);
+      }
+    });
+  });
+
+  // Handle unit changes
+  unitSelects.forEach((unitSelect) => {
+    unitSelect.addEventListener("change", function () {
+      const row = unitSelect.closest("tr");
       const checkbox = row.querySelector(".pdcb");
       const productName = checkbox.value;
 
       if (checkbox.checked) {
         products = products.map((p) =>
-          p.product === productName
-            ? { product: productName, quantity: select.value }
-            : p
+          p.product === productName ? { ...p, unit: unitSelect.value } : p
         );
 
-        localStorage.setItem("products", JSON.stringify(products));
+        sessionStorage.setItem("products", JSON.stringify(products));
         console.log(products);
       }
     });
   });
-  /* Add products logic */
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -133,7 +155,7 @@ const handleFormSubmission = async (formData) => {
 
     if (data.success) {
       alert(data.message || "Operation Successfull");
-      localStorage.removeItem("products")
+      sessionStorage.removeItem("products");
       window.location.reload();
     } else {
       throw new Error(data.message);

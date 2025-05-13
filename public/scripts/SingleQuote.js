@@ -25,8 +25,15 @@ const fetchSingleQuote = async () => {
         table += `
           <tr>
             <td style="border: 1px solid #ccc; padding: 8px;">${index + 1}</td>
-            <td style="border: 1px solid #ccc; padding: 8px;">${item.product}</td>
-            <td style="border: 1px solid #ccc; padding: 8px;">${item.quantity}</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">${
+              item.product
+            }</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">${
+              item.quantity
+            }</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">${
+              item.unit
+            }</td>
           </tr>
         `;
       });
@@ -54,6 +61,7 @@ const fetchSingleQuote = async () => {
                <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Sr.</td>
                <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Product Name</td>
                <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Quantity</td>
+               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Unit</td>
               </tr>
 
               ${table}

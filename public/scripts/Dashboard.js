@@ -7,7 +7,7 @@ async function fetchProducts() {
     const data = await res.json();
     const { products } = data.data;
 
-    pTag.innerText = products.length ? products.length : "N/A";
+    pTag.innerText = products.length ? products.length : "0";
   } catch (error) {
     console.error("Fetch error:", error);
   }
@@ -21,7 +21,7 @@ async function fetchContacts() {
 
     const resData = await res.json();
 
-    cTag.innerText = resData.length > 0 ? resData.length : "N/A";
+    cTag.innerText = resData.length > 0 ? resData.length : "0";
   } catch (error) {
     console.error("Fetch error:", error);
   }
@@ -38,7 +38,7 @@ async function fetchOrderBookings() {
     const { Data } = resData;
 
 
-    oTag.innerText = Data.length > 0 ? Data.length : "N/A";
+    oTag.innerText = Data.length > 0 ? Data.length : "0";
   } catch (error) {
     console.error("Fetch error:", error);
   }
