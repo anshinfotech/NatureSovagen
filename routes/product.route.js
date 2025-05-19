@@ -4,6 +4,7 @@ const {
   getAllProducts,
   getSingleProduct,
   deleteProduct,
+  updateProduct,
 } = require("../controllers/product.controller");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 const uploadImage = require("../middlewares/upload");
@@ -21,5 +22,11 @@ router.get("/products/single-product", (req, res) => {
 });
 router.get("/products/:id", getSingleProduct);
 router.delete("/products/:id", isAuthenticated, deleteProduct);
+
+router.get("/update-product", isAuthenticated, (req, res) => {
+  res.render("UpdateProduct");
+});
+
+router.post("/products/update-product", updateProduct);
 
 module.exports = router;

@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${product.title}</td>
         <td class='hide'>${product.description}</td>
         <td class='hide'>${product.category}</td>
+        <td class='hide'><a href='/api/update-product?query=${product._id}'>
+        <i class='fa-solid fa-eye' style="font-size:24px;color:green"></i>
+        </a></td>
         <td><button class='delete-btn' data-id="${
           product._id
         }"> <i class="fa fa-trash-o" style="font-size:24px;color:red"></i></button></td>

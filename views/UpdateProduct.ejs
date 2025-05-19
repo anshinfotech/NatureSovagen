@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Product Dashboard : NatureSovagen</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/adNav.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="admin-navbar">
+      <h1 class="dash-h1">Nature Sovageon</h1>
+
+      <ul class="nav-list">
+        <a class="nav-link" href="/api/dashboard">Home</a>
+        <a class="nav-link" href="/api/products-dashboard">Products</a>
+        <a class="nav-link" href="/api/quotes/bookings-data">Bookings</a>
+        <a class="nav-link" href="/api/contact/contacts-data">Contact Data</a>
+
+        <button id="logout" class="logout-btn">
+          Logout
+          <i class="fa fa-arrow-circle-right" style="font-size: 16px"></i>
+        </button>
+      </ul>
+      <button id="menuBtn" class="menuBtn">
+        <i class="fa-solid fa-bars" style="font-size: 24px"></i>
+      </button>
+    </nav>
+    <div class="form-container">
+      <h2>Update Product</h2>
+      <form id="productForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Product Title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Product Description"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            id="category"
+            name="category"
+            placeholder="Product Category"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <div id="content"></div>
+        </div>
+        <button type="submit" id="update-product">Update Product</button>
+      </form>
+    </div>
+
+    <script src="/scripts/UpdateProduct.js"></script>
+    <script src="/scripts/AdNav.js"></script>
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ff2fca5fdd.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

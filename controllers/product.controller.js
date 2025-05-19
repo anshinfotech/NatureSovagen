@@ -7,16 +7,24 @@ const addProduct = async (req, res) => {
     const files = req.files;
 
     if (!title) {
-      return res.status(400).json({ message: "Title is required" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Title is required" });
     }
     if (!description) {
-      return res.status(400).json({ message: "Description is required" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Description is required" });
     }
     if (!category) {
-      return res.status(400).json({ message: "Category is required" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Category is required" });
     }
     if (!content) {
-      return res.status(400).json({ message: "Content is required" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Content is required" });
     }
     if (!files && files.length === 0) {
       return res.json({ message: "Images are required", success: false });
@@ -103,9 +111,66 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+const updateProduct = async (req, res) => {
+  try {
+    const { productId, title, description, category, content } = req.body;
+
+    if (!title) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Title is required" });
+    }
+    if (!description) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Description is required" });
+    }
+    if (!category) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Category is required" });
+    }
+    if (!content) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Content is required" });
+    }
+
+    const updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      {
+        $set: {
+          title: title,
+          description: description,
+          category: category,
+          content: content,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+
+    if (!updatedProduct) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Content is required" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Updated Successfully",
+      Data: updatedProduct,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message, success: false });
+  }
+};
+
 module.exports = {
   addProduct,
   getAllProducts,
   getSingleProduct,
   deleteProduct,
+  updateProduct
 };
