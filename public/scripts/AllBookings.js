@@ -1,3 +1,5 @@
+let originalData = [];
+
 async function fetchOrderBookings() {
   try {
     const res = await fetch(`/api/quotes/all_quotes`);
@@ -7,6 +9,8 @@ async function fetchOrderBookings() {
     const resData = await res.json();
     const { Data } = resData;
 
+    originalData = Data;
+
     renderDataDOM(Data);
   } catch (error) {
     console.error("Fetch error:", error);
@@ -15,6 +19,8 @@ async function fetchOrderBookings() {
 
 const renderDataDOM = (Data) => {
   const tbody = document.getElementById("table-body");
+
+  tbody.innerHTML = "";
 
   Data.map((item) => {
     const tr = document.createElement("tr");
@@ -55,4 +61,37 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
   // Initial load
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const email = document.getElementById("emflt");
+  const mobile = document.getElementById("mobflt");
+
+  email.addEventListener("input", function (event) {
+    let val = event.target.value;
+
+    const newMappedData = originalData.filter((item) => {
+      if (item.email.toLowerCase().includes(val.toLowerCase())) {
+        return item;
+      }
+    });
+
+    setTimeout(() => {
+      renderDataDOM(newMappedData);
+    }, 700);
+  });
+
+  mobile.addEventListener("input", function (event) {
+    let val = event.target.value;
+
+    const newMappedData = originalData.filter((item) => {
+      if (item.mobile.toString().includes(val.toString())) {
+        return item;
+      }
+    });
+
+    setTimeout(() => {
+      renderDataDOM(newMappedData);
+    }, 700);
+  });
 });

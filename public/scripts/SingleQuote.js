@@ -24,30 +24,28 @@ const fetchSingleQuote = async () => {
       Data.products.map((item, index) => {
         table += `
           <tr>
-            <td style="border: 1px solid #ccc; padding: 8px;">${index + 1}</td>
             <td style="border: 1px solid #ccc; padding: 8px;">${
-              item.product
+              item?.ProductName
             }</td>
             <td style="border: 1px solid #ccc; padding: 8px;">${
-              item.quantity
+              item?.sample_Qt
             }</td>
             <td style="border: 1px solid #ccc; padding: 8px;">${
-              item.unit
+              item?.purchase_Qt
+            }</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">${
+              item?.units
             }</td>
           </tr>
         `;
       });
 
       const html = `
-            ${renderField("Name", Data?.fullName)}
+            ${renderField("Name", Data?.gender + " " + Data?.fullName)}
             ${renderField("Email", Data?.email)}
-            ${renderField("Mobile", Data?.mobile)}
-            ${renderField("Alternate Mobile", Data?.altMobile)}
+            ${renderField("Work Phone", Data?.mobile)}
+            ${renderField("Mobile", Data?.altMobile)}
             ${renderField("Company/Organization Name", Data?.company)}
-            ${renderField(
-              "Gender",
-              Data?.gender === "male" ? "Male" : "Female"
-            )}
             ${renderField(
               "Expected Delivery Date",
               new Date(Data?.deliveryDate).toDateString()
@@ -58,17 +56,25 @@ const fetchSingleQuote = async () => {
             )}
            <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
               <tr style="background-color: #f2f2f2;">
-               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Sr.</td>
                <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Product Name</td>
-               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Quantity</td>
+               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Sample Quantity(1-5)</td>
+               <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Purchase Quantity</td>
                <td style="border: 1px solid #ccc; padding: 8px; font-weight: bold;">Unit</td>
               </tr>
 
               ${table}
            </table>
+
+           <div class='print_btn_container'>
+              <button id="print_btn" class="print_btn">Print</button>
+           </div>
           `;
 
       detailsDiv.innerHTML = html;
+
+      document.getElementById('print_btn').addEventListener("click" , function() {
+        window.print();
+      })
     } else {
       throw new Error(message);
     }

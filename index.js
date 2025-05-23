@@ -41,5 +41,4 @@ app.get("/naturesovagen/v1/get-a-quote", (req, res) => {
 
 app.listen(port, () => {
   console.log(`NatureSovagen Server is running at http://localhost:${port}`);
-  dbConnection();
 });

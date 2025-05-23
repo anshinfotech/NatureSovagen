@@ -8,100 +8,6 @@ const hideLoading = () => {
 
 const handleFormController = () => {
   const form = document.querySelector(".quote-form");
-  const checkboxes = document.querySelectorAll(".pdcb");
-  const selects = document.querySelectorAll("select.sample");
-  const unitSelects = document.querySelectorAll("select.unit");
-
-  let products = JSON.parse(sessionStorage.getItem("products")) || [];
-
-  // Disable selects and unit dropdowns initially
-  selects.forEach((select) => (select.disabled = true));
-  unitSelects.forEach((unit) => (unit.disabled = true));
-
-  // Restore state
-  products.forEach((productObj) => {
-    const checkbox = document.querySelector(
-      `input.pdcb[value="${productObj.product}"]`
-    );
-    const row = checkbox.closest("tr");
-    const select = row.querySelector("select.sample");
-    const unitSelect = row.querySelector("select.unit");
-
-    checkbox.checked = true;
-    select.disabled = false;
-    unitSelect.disabled = false;
-
-    select.value = productObj.quantity;
-    unitSelect.value = productObj.unit;
-  });
-
-  // Handle checkbox changes
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      const row = checkbox.closest("tr");
-      const select = row.querySelector("select.sample");
-      const unitSelect = row.querySelector("select.unit");
-      const productName = checkbox.value;
-
-      if (checkbox.checked) {
-        select.disabled = false;
-        unitSelect.disabled = false;
-
-        if (!products.some((p) => p.product === productName)) {
-          products.push({
-            product: productName,
-            quantity: select.value,
-            unit: unitSelect.value,
-          });
-        }
-      } else {
-        select.disabled = true;
-        unitSelect.disabled = true;
-
-        products = products.filter((p) => p.product !== productName);
-      }
-
-      sessionStorage.setItem("products", JSON.stringify(products));
-      console.log(products);
-    });
-  });
-
-  // Handle quantity changes
-  selects.forEach((select) => {
-    select.addEventListener("change", function () {
-      const row = select.closest("tr");
-      const checkbox = row.querySelector(".pdcb");
-      const unitSelect = row.querySelector("select.unit");
-      const productName = checkbox.value;
-
-      if (checkbox.checked) {
-        products = products.map((p) =>
-          p.product === productName ? { ...p, quantity: select.value } : p
-        );
-
-        sessionStorage.setItem("products", JSON.stringify(products));
-        console.log(products);
-      }
-    });
-  });
-
-  // Handle unit changes
-  unitSelects.forEach((unitSelect) => {
-    unitSelect.addEventListener("change", function () {
-      const row = unitSelect.closest("tr");
-      const checkbox = row.querySelector(".pdcb");
-      const productName = checkbox.value;
-
-      if (checkbox.checked) {
-        products = products.map((p) =>
-          p.product === productName ? { ...p, unit: unitSelect.value } : p
-        );
-
-        sessionStorage.setItem("products", JSON.stringify(products));
-        console.log(products);
-      }
-    });
-  });
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -133,16 +39,21 @@ const handleFormController = () => {
       country,
       postalCode,
       deliveryDate,
-      products,
     };
 
     handleFormSubmission(formData);
   });
 };
 
-const handleFormSubmission = async (formData) => {
+const handleFormSubmission = async (userData) => {
   showLoading();
   try {
+
+    const formData = {
+      ...userData,
+      products : JSON.parse(sessionStorage.getItem('orderItems'))
+    }
+
     const response = await fetch(`/api/quotes/new_quote`, {
       method: "POST",
       headers: new Headers({
@@ -155,7 +66,7 @@ const handleFormSubmission = async (formData) => {
 
     if (data.success) {
       alert(data.message || "Operation Successfull");
-      sessionStorage.removeItem("products");
+      sessionStorage.removeItem("orderItems");
       window.location.reload();
     } else {
       throw new Error(data.message);
@@ -168,3 +79,72 @@ const handleFormSubmission = async (formData) => {
 };
 
 document.addEventListener("DOMContentLoaded", handleFormController);
+
+document.addEventListener("DOMContentLoaded", function () {
+  //Show booked Products
+  const products = JSON.parse(sessionStorage.getItem("orderItems")) || [];
+
+  if (products.length === 0) {
+    document.querySelector(".cart-container").innerHTML = `
+    <h1>Booking Order</h1>
+    <h2>Sorry There are no Booking orders</h2>
+    `;
+  }
+
+  const cartItems = document.querySelector(".cart-items");
+
+  products.map((item, index) => {
+    const cartDiv = document.createElement("div");
+    cartDiv.classList.add("cart-item");
+    cartDiv.setAttribute("data-id", item.id);
+
+    cartDiv.innerHTML = `
+      <div class="item-content">
+        <div class="item-info">
+          <img src="${item.productImage}" alt="Product 1" />
+        </div>
+        <div class="quantity">
+          <div class="item-details">
+            <h3>${item.ProductName}</h3>
+          </div>
+          <div>
+            <label>Sample Qt:</label>
+            <input type="number" class="sample_input" value="${item.sample_Qt}" min="1" />
+          </div>
+          <div>
+            <label>Purchase Qt:</label>
+            <input type="number" class="purchase_input" value="${item.purchase_Qt}" />
+          </div>
+
+          <button class='update_btn'>Update</button>
+          <button class='remove_btn'>Remove</button>
+        </div>
+      </div>
+    `;
+
+    cartItems.append(cartDiv);
+
+    // Handle Update
+    cartDiv.querySelector(".update_btn").addEventListener("click", function () {
+      const updatedSample = cartDiv.querySelector(".sample_input").value;
+      const updatedPurchase = cartDiv.querySelector(".purchase_input").value;
+
+      // Update values in products array
+      products[index].sample_Qt = updatedSample;
+      products[index].purchase_Qt = updatedPurchase;
+
+      // Save back to sessionStorage
+      sessionStorage.setItem("orderItems", JSON.stringify(products));
+
+      alert("Updated successfully!");
+    });
+
+    // Handle Remove
+    cartDiv.querySelector(".remove_btn").addEventListener("click", function () {
+      products.splice(index, 1);
+      sessionStorage.setItem("orderItems", JSON.stringify(products));
+      alert("Removed Successfully");
+      location.reload(); // Refresh to update UI
+    });
+  });
+});

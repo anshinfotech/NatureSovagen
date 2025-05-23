@@ -17,18 +17,15 @@ async function fetchProducts() {
       products.forEach((product) => {
         const card = document.createElement("div");
         card.classList.add("product-card");
-        card.setAttribute('data-aos-duration' , "1500")
-        card.setAttribute('data-aos' , "fade-up")
+        card.setAttribute("data-aos-duration", "1500");
+        card.setAttribute("data-aos", "fade-up");
 
         card.innerHTML = `
         <img src="${product.image[0]}" alt="${product.title}" />
         <h3>${product.title}</h3>
         <p>${product.description || "No description available."}</p>
+        <button class="book_btn" onclick="navigate('${product._id}')">Place Order</button>
       `;
-
-        card.addEventListener("click", () => {
-          window.location.href = `/api/products/single-product/?query=${product._id}`;
-        });
 
         container.appendChild(card);
       });
@@ -37,5 +34,9 @@ async function fetchProducts() {
     console.error("Error fetching products:", error);
   }
 }
+
+const navigate = (id) => {
+  window.location.href = `/api/products/single-product/?query=${id}`;
+};
 
 window.addEventListener("DOMContentLoaded", fetchProducts);

@@ -107,6 +107,17 @@ body {
     text-align: center;
 }
 
+.book_btn{
+    padding: 8px 20px;
+    font-size: 16px;
+    background-color: #0B6623;
+    border: none;
+    color: #f7f7f7;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
 .product-card:hover {
     transform: translateY(-8px);
 }

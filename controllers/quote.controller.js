@@ -32,12 +32,18 @@ const newQuoteController = asyncHandler(async (req, res) => {
     !state ||
     !country ||
     !postalCode ||
-    !deliveryDate ||
-    !products
+    !deliveryDate
   ) {
     return res.status(422).json({
       success: false,
       message: "Missing Data. Fill all fields",
+    });
+  }
+
+  if (products.length === 0) {
+    return res.status(422).json({
+      success: false,
+      message: "No Products are selected",
     });
   }
 
@@ -86,7 +92,7 @@ const newQuoteController = asyncHandler(async (req, res) => {
         <h2 style="color: #0B6623;">Hello ${fullName},</h2>
         <p>Thank you for reaching out to us at <strong>NatureSovagen</strong>!</p>
         <p>We’re thrilled to inform you that your quote request has been successfully received. Our team is reviewing the details and will get back to you shortly with a personalized quotation.</p>
-        
+
         <h3 style="color: #0B6623;">Here’s what we’ve received from you:</h3>
         <ul style="line-height: 1.8;">
           <li><strong>Full Name:</strong> ${fullName}</li>
@@ -97,13 +103,12 @@ const newQuoteController = asyncHandler(async (req, res) => {
           <li><strong>Company/Organization:</strong> ${company}</li>
           <li><strong>Address:</strong> ${landmark}, ${city}, ${state}, ${country}, ${postalCode}</li>
           <li><strong>Preferred Delivery Date:</strong> ${deliveryDate}</li>
-          <li><strong>Selected Products:</strong> ${products.join(", ")}</li>
         </ul>
-  
+
         <p>If any of the above information needs to be updated, simply reply to this email.</p>
-  
+
         <p>We truly appreciate your interest in <strong>NatureSovagen</strong> and look forward to serving you with our best offerings.</p>
-  
+
         <p style="margin-top: 30px;">Warm regards,<br/>
         <strong>The NatureSovagen Team</strong><br/>
         <a href="https://www.naturesovagen.com" target="_blank" style="color: #0B6623;">www.naturesovagen.com</a><br/>

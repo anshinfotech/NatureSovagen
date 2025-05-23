@@ -26,9 +26,15 @@
 
     <!-- Hero Banner -->
     <section class="hero">
-      <h1 class="hero-head" data-aos="slide-up" data-aos-duration="1500">NatureSovagen Products</h1>
+      <h1 class="hero-head" data-aos="slide-up" data-aos-duration="1500">
+        NatureSovagen Products
+      </h1>
     </section>
-    <div class="product-detail-container" data-aos="fade-up" data-aos-duration="1500">
+    <div
+      class="product-detail-container"
+      data-aos="fade-up"
+      data-aos-duration="1500"
+    >
       <div class="product-image">
         <img id="productImage" src="" alt="Product Image" />
       </div>
@@ -40,8 +46,50 @@
       </div>
     </div>
 
-    <div class="products-grid">
-      
+    <div class="products-grid"></div>
+
+    <!-- Book Product Container -->
+
+    <div class="">
+      <div class="order-container" data-aos="fade-up" data-aos-duration="1500">
+        <h2>Place your Order</h2>
+
+        <div class="fields-container">
+          <div class="each-input">
+            <label for="sp_quantity" class="form-label"
+              >Enter Sample Quantity</label
+            >
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Please Enter Sample Quantity (Between 1 - 5)"
+              id="sp_quantity"
+            />
+          </div>
+          <div class="each-input">
+            <label for="quantity" class="form-label"
+              >Enter Estimated Purchasing Quantity</label
+            >
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Please Enter Estimated Purchasing Quantity"
+              id="quantity"
+            />
+          </div>
+          <div class="each-input">
+            <label for="sp_quantity" class="form-label">Units</label>
+            <select class="form-input" id="quantity_unit">
+              <option value="Kg">Kg</option>
+              <option value="Pound(lb)">Pound(lb)</option>
+              <option value="Tonne">Tonne</option>
+              <option value="g">g</option>
+            </select>
+          </div>
+
+          <button class="book_now_btn">Book Now</button>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
