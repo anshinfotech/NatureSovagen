@@ -73,7 +73,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.products-grid{
+.products-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -82,10 +82,11 @@ body {
     justify-content: center;
 }
 
-.grid-image{
+.grid-image {
     height: 250px;
     width: 330px;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .product-category {
@@ -119,7 +120,7 @@ footer {
     color: #888;
 }
 
-.order-container{
+.order-container {
     width: 60%;
     margin: 100px auto;
     padding: 50px 20px;
@@ -127,30 +128,31 @@ footer {
     border-radius: 10px;
 }
 
-.each-input{
+.each-input {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
 }
 
-.form-label{
+.form-label {
     font-weight: bold;
 }
 
-.form-input{
+.form-input {
     padding: 5px 10px;
     font-size: 16px;
 }
 
-.book_now_btn{
+.book_now_btn {
     margin-top: 20px;
     background-color: #0B6623;
     width: 100%;
     padding: 8px 0px;
     font-size: 18px;
     color: #f7f7f7;
-    border: none;cursor: pointer;
+    border: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

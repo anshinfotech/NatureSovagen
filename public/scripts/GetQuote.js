@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (products.length === 0) {
     document.querySelector(".cart-container").innerHTML = `
-    <h1>Booking Order</h1>
-    <h2>Sorry There are no Booking orders</h2>
+    <h1>Products Details</h1>
+    <h2>Oops! No Data to Show</h2>
     `;
   }
 

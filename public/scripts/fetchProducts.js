@@ -24,7 +24,7 @@ async function fetchProducts() {
         <img src="${product.image[0]}" alt="${product.title}" />
         <h3>${product.title}</h3>
         <p>${product.description || "No description available."}</p>
-        <button class="book_btn" onclick="navigate('${product._id}')">Place Order</button>
+        <button class="book_btn" onclick="navigate('${product._id}')">Get a Quote</button>
       `;
 
         container.appendChild(card);
